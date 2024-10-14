@@ -1,5 +1,4 @@
 import Constants.Constants;
-
 import java.io.IOException;
 
 public class Main {

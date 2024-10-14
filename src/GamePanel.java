@@ -1,24 +1,20 @@
 import Constants.Constants;
 import Constants.FilesPaths;
-
-import javax.imageio.ImageIO;
-import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.io.File;
 import java.io.IOException;
+import javax.imageio.ImageIO;
+import javax.swing.*;
 
-public class GamePanel extends JPanel implements KeyListener, ActionListener {
+public class GamePanel extends JPanel implements ActionListener {
     public Ship ship1;  // arrows
     public Ship ship2;  // wasd
     Timer timer;
 
     public GamePanel() throws IOException {
         setFocusable(true);
-        addKeyListener(this);
         timer = new Timer(50, this);
         timer.start();
         try {
@@ -45,72 +41,5 @@ public class GamePanel extends JPanel implements KeyListener, ActionListener {
         ship1.move();
         ship2.move();
         repaint();
-    }
-
-    @Override
-    public void keyTyped(KeyEvent e) {
-
-    }
-
-    @Override
-    public void keyPressed(KeyEvent e) {
-        // ship1
-        if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-            ship1.direction.right = true;
-        }
-        if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-            ship1.direction.left = true;
-        }
-        if (e.getKeyCode() == KeyEvent.VK_UP) {
-            ship1.direction.up = true;
-        }
-        if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-            ship1.direction.down = true;
-        }
-
-        // ship2
-        if (e.getKeyCode() == KeyEvent.VK_A) {
-            ship2.direction.right = true;
-        }
-        if (e.getKeyCode() == KeyEvent.VK_D) {
-            ship2.direction.left = true;
-        }
-        if (e.getKeyCode() == KeyEvent.VK_W) {
-            ship2.direction.up = true;
-        }
-        if (e.getKeyCode() == KeyEvent.VK_S) {
-            ship2.direction.down = true;
-        }
-    }
-
-    @Override
-    public void keyReleased(KeyEvent e) {
-        //ship1
-        if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-            ship1.direction.right = false;
-        }
-        if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-            ship1.direction.left = false;
-        }
-        if (e.getKeyCode() == KeyEvent.VK_UP) {
-            ship1.direction.up = false;
-        }
-        if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-            ship1.direction.down = false;
-        }
-
-        //ship2
-        if (e.getKeyCode() == KeyEvent.VK_A) {
-            ship2.direction.right = false;
-        }
-        if (e.getKeyCode() == KeyEvent.VK_D) {
-            ship2.direction.left = false;
-        }
-        if (e.getKeyCode() == KeyEvent.VK_W) {
-            ship2.direction.up = false;
-        }
-        if (e.getKeyCode() == KeyEvent.VK_S) {
-            ship2.direction.down = false;
-        }
     }
 }
