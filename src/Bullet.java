@@ -8,10 +8,8 @@ public class Bullet extends Unit {
         super(x, y, speed, angle, image);
     }
 
-    public
-
     @Override
-    void draw(Graphics g) {
+    public void draw(Graphics g) {
 
     }
 
