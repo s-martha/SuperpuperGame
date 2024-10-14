@@ -12,7 +12,8 @@ import java.io.File;
 import java.io.IOException;
 
 public class GamePanel extends JPanel implements KeyListener, ActionListener {
-    public Ship orc;
+    public Ship ship1;  // arrows
+    public Ship ship2;  // wasd
     Timer timer;
 
     public GamePanel() throws IOException {
@@ -21,8 +22,10 @@ public class GamePanel extends JPanel implements KeyListener, ActionListener {
         timer = new Timer(50, this);
         timer.start();
         try {
-            Image image = ImageIO.read(new File(FilesPaths.Ship1));
-            this.orc = new Ship(Constants.Ship1SpawnX, Constants.Ship1SpawnY, Constants.Ship1Speed, Constants.StartAngle, image, null, 1);
+            Image imageShip1 = ImageIO.read(new File(FilesPaths.Ship1));
+            Image imageShip2 = ImageIO.read(new File(FilesPaths.Ship2));
+            this.ship1 = new Ship(Constants.Ship1SpawnX, Constants.Ship1SpawnY, Constants.Ship1Speed, Constants.StartAngle, imageShip1, null, 1);
+            this.ship2 = new Ship(Constants.Ship2SpawnX, Constants.Ship2SpawnY, Constants.Ship2Speed, Constants.StartAngle, imageShip2, null, 1);
         }
         catch (IOException e) {
             System.out.println("Картинка не загрузилась(( облом");
@@ -33,12 +36,12 @@ public class GamePanel extends JPanel implements KeyListener, ActionListener {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        orc.draw(g);
+        ship1.draw(g);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        orc.move();
+        ship1.move();
         repaint();
     }
 
@@ -50,32 +53,32 @@ public class GamePanel extends JPanel implements KeyListener, ActionListener {
     @Override
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-            orc.direction.right = true;
+            ship1.direction.right = true;
         }
         if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-            orc.direction.left = true;
+            ship1.direction.left = true;
         }
         if (e.getKeyCode() == KeyEvent.VK_UP) {
-            orc.direction.up = true;
+            ship1.direction.up = true;
         }
         if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-            orc.direction.down = true;
+            ship1.direction.down = true;
         }
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-            orc.direction.right = false;
+            ship1.direction.right = false;
         }
         if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-            orc.direction.left = false;
+            ship1.direction.left = false;
         }
         if (e.getKeyCode() == KeyEvent.VK_UP) {
-            orc.direction.up = false;
+            ship1.direction.up = false;
         }
         if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-            orc.direction.down = false;
+            ship1.direction.down = false;
         }
     }
 }
