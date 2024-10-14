@@ -14,8 +14,8 @@ public class Ship extends Unit implements HealthPoint {
 
     @Override
     public void move() {
-        int dx = (int) (Math.cos(angle) * speed);
-        int dy = (int) (Math.sin(angle) * speed);
+        int dx = -(int) (Math.sin(angle) * speed);
+        int dy = (int) (Math.cos(angle) * speed);
         if (direction.up) {
             x -= dx;
             y -= dy;
