@@ -1,3 +1,6 @@
+import Interfaces.Attack;
+import Interfaces.HealthPoint;
+
 import java.util.LinkedList;
 
 public class Weapon implements Attack {

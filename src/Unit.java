@@ -1,3 +1,6 @@
+import Interfaces.Drawing;
+import Interfaces.Moving;
+
 import java.awt.*;
 
 public abstract class Unit implements Moving, Drawing {

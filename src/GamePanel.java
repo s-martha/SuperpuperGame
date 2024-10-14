@@ -1,3 +1,6 @@
+import Constants.Constants;
+import Constants.FilesPaths;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
@@ -18,8 +21,8 @@ public class GamePanel extends JPanel implements KeyListener, ActionListener {
         timer = new Timer(50, this);
         timer.start();
         try {
-            Image image = ImageIO.read(new File("src/orc.png"));
-            this.orc = new Ship(50, 50, 10, Math.PI/2.0, image, null, 1);
+            Image image = ImageIO.read(new File(FilesPaths.Ship1));
+            this.orc = new Ship(Constants.Ship1SpawnX, Constants.Ship1SpawnY, Constants.Ship1Speed, Constants.StartAngle, image, null, 1);
         }
         catch (IOException e) {
             System.out.println("Картинка не загрузилась(( облом");

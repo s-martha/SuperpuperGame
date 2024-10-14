@@ -1,3 +1,5 @@
+package Interfaces;
+
 public interface HealthPoint {
     int getHP();
     void setHP(int healthPoint);

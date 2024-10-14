@@ -1,3 +1,5 @@
+import Interfaces.HealthPoint;
+
 import java.awt.*;
 
 public class Ship extends Unit implements HealthPoint {
